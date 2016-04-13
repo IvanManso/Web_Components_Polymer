@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test html</title>
+</head>
+
+<body>
+    <div id="host"></div>
+    <script>
+    var host = document.querySelector("#host");
+    var root = host.createShadowRoot();
+    root.innerHTML = '<button id="btnU">Up</button><div id="contador"></div> <button id="btnD"> Down </button><br><br/>';
+    var cont = 0;
+    root.querySelector("#btnU")
+        .addEventListener("click", function() {
+            cont++;
+            console.log("Aumentamos el click", cont);
+            root.querySelector("#contador").textContent = cont;
+
+        });
+
+    root.querySelector("#btnD")
+        .addEventListener("click", function() {
+            cont--;
+            console.log("Disminuimos el click", cont);
+            root.querySelector("#contador").textContent = cont;
+
+        });
+    </script>
+</body>
+
+</html>
