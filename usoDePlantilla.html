@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Testing template</title>
+</head>
+
+<body>
+    <template id="news">
+        <img src="" style="width:350px;	border: black solid; border-radius: 5px;">
+        <div class="body"></div>
+    </template>
+    <div id="new-1"></div>
+    <div id="new-2"></div>
+    <script>
+    function createNew(container, image, body) {
+        var root = document.querySelector(container).createShadowRoot();
+        var template = document.querySelector("#news").content;
+        template.querySelector("img").src = image;
+        template.querySelector(".body").innerHTML = body;
+        root.appendChild(template.cloneNode(true));
+    }
+    createNew("#new-1", "http://tusimagenesde.com/wp-content/uploads/2016/03/fotos-divertidas-11.jpg", "<div style=width: 200px; margin-left: 10px'><strong>La cena</strong></div>");
+    createNew("#new-2", "http://tusimagenesde.com/wp-content/uploads/2016/03/fotos-divertidas-11.jpg", "<strong>La comida</strong>");
+    </script>
+</body>
+
+</html>
