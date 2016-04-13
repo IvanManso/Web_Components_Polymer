@@ -11,6 +11,11 @@
     <script>
     var host = document.querySelector("#host");
     var root = host.createShadowRoot();
+    var root2 = host.createShadowRoot();
+    var root3 = host.createShadowRoot();
+    root2.innerHTML = "Contenido capa 2";
+    root3.innerHTML = "Contenido capa 3";
+
     root.innerHTML = '<button id="btnU">Up</button><div id="contador"></div> <button id="btnD"> Down </button><br><br/>';
     var cont = 0;
     root.querySelector("#btnU")

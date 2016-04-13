@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test html</title>
+</head>
+
+<body>
+    <div id="host"></div>
+    <script>
+    var host = document.querySelector("#host");
+    var root = host.createShadowRoot();
+    var root2 = host.createShadowRoot();
+    var root3 = host.createShadowRoot();
+    root.innerHTML = "Contenido capa 1 ";
+    root2.innerHTML = "Contenido capa 2 <shadow></shadow> Contenido capa 2 después";
+    root3.innerHTML = "Contenido capa 3 <shadow></shadow> Contenido capa 3 después";
+    </script>
+</body>
+
+</html>

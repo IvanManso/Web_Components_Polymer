@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test html</title>
+</head>
+
+<body>
+    <div id="outerHost">
+        <div id="name">Iván Manso</div>
+        <div id="dir">C/ Falsa Nº3</div>
+    </div>
+    <script>
+    var outerHost = document.querySelector("#outerHost");
+    var outerRoot = outerHost.createShadowRoot();
+    outerRoot.innerHTML = '<div style="border-style: solid; width:350px; border-radius:5px; background-color:orange"><div><strong>TARJETA DE VISITA</strong></div><hr></hr>'+
+        '<content select="#name"></content>' +
+        '<content select="#dir"></content>' +
+        '<div id="innerHost"></div>'+
+        '697235694</div>';
+    var innerHost = outerRoot.querySelector("#innerHost");
+    var innerRoot = innerHost.createShadowRoot();
+    innerRoot.innerHTML = "Babel Sistemas de información";
+    </script>
+</body>
+
+</html>

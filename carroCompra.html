@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test html</title>
+</head>
+
+<body>
+    <div id="outerHost">
+        <div class="food meat"><li>Cow</li></div>
+        <div class="dessert fruit"><li>Orange</li></div>
+        <div class="food fish"><li>Cod</li></div>
+        <div class="food fruit"><li>Tomato</li></div>
+    </div>
+    <script>
+    var outerHost = document.querySelector("#outerHost");
+    var outerRoot = outerHost.createShadowRoot();
+    outerRoot.innerHTML = '<div style="border-style: solid; width:350px; border-radius:5px; background-color:green"><div><strong>FOOD TRACK</strong></div><hr></hr>' +
+        //'<content select=".food.meat"></content>' +
+        '<content select=".dessert.fruit"></content>' +
+        //'<content select=".food.fish"></content>' +
+        //'<content select=".food.fruit"></content>' +
+        '<content select=".food"></content>' +
+        '<content select=".fruit"></content>' +
+
+        '<div id="innerHost"></div>' +
+        '697235694</div>';
+    var innerHost = outerRoot.querySelector("#innerHost");
+    var innerRoot = innerHost.createShadowRoot();
+    innerRoot.innerHTML = "Frutas Jacinta";
+    </script>
+</body>
+
+</html>
