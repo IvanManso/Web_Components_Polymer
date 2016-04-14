@@ -4,31 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Test html</title>
+    <link rel="import" href="wc-new.html">
 </head>
 
 <body>
-    <template id="news">
-        <img src="" style="width:350px; border: black solid; border-radius: 5px;">
-        <div class="body"></div>
-    </template>
     <wc-new id="new-1">
         <wc-new-img src="">http://tusimagenesde.com/wp-content/uploads/2016/03/fotos-divertidas-11.jpg</wc-new-img>
         <wc-new-body>Buenas tardeeesss</wc-new-body>
     </wc-new>
-    <script>
-    var p = Object.create(HTMLElement.prototype);
-    p.createdCallback = function() {
-        var root = this.createShadowRoot();
-        var template = document.querySelector("#news").content;
-        template.querySelector("img").src = this.querySelector("wc-new-img").textContent;
-        template.querySelector(".body").textContent = this.querySelector("wc-new-body").textContent;
-        root.appendChild(template.cloneNode(true));
-    };
-    var Card = document.registerElement(
-        'wc-new', {
-            prototype: p
-        });
-    </script>
+    <wc-new id="new-2">
+        <wc-new-img src="">http://tusimagenesde.com/wp-content/uploads/2016/03/fotos-divertidas-11.jpg</wc-new-img>
+        <wc-new-body>Buenas tardeeesss</wc-new-body>
+    </wc-new>
 </body>
 
 </html>

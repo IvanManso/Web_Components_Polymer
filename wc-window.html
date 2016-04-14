@@ -1,0 +1,60 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-pelicula.html">
+<dom-module id="wc-window">
+    <template>
+        <style>
+        #marco {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-style: solid;
+            width: 600px;
+            border-radius: 8px;
+            background-color: lightgreen;
+        }
+        </style>
+        <div id="marco">
+            <h1>Taquilla</h1>
+            <content></content>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: "wc-window",
+            /*ready: function() {
+                var film = this.$.film;
+                film.textContent = "American Psycho";
+                var horario = this.$.horario;
+                horario.textContent = "18:00";
+                var pago = this.$.pago;
+                pago.textContent = "Pagar";
+                var price = this.$.price;
+                price.textContent = "6€";*/
+            /* ready: function() {
+                 var movie =this.$.marco.getEffectiveChildren();
+                    var add = Polymer.dom(movie).querySelector("ses1");
+                    add.addEventListener("click")
+             }*/
+             ready: function(){
+                var peliculas = Polymer.dom(this).querySelectorAll("wc-pelicula");
+                console.log("El pol es", peliculas);
+                peliculas.forEach(function(pelicula){
+                    addEventListener("click", function(tar){
+                        var target = tar.target;
+                        var session = target.value;
+                        console.log("Session es", session);
+                        var ticket = new Ticket();
+                        ticket.session = session;
+                        ticket.film = pelicula.film;
+                        console.log("El kiosko es", this);
+                        var dos = this.parentNode.querySelector("#k").addTicket(ticket);
+                        console.log("Estoy en el kiosko", this.parentNode.querySelector("#k"));
+                    }.bind(this));
+                }.bind(this));
+             },
+
+        });
+    })();
+    </script>
+</dom-module>

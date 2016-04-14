@@ -1,0 +1,41 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-ticket.html">
+<dom-module id="wc-kiosk">
+    <template>
+        <style>
+        .marco {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-style: solid;
+            width: 600px;
+            border-radius: 8px;
+            background-color: red;
+        }
+        </style>
+        <div class="marco">
+            <h1>Kiosko</h1>
+        <content></content>
+        </div>
+    </template>
+    <script>
+    (function() {
+        kiosko = Polymer({
+            is: "wc-kiosk",
+            /*ready: function() {
+                var film = this.$.film;
+                film.textContent = "American Psycho";
+                var horario = this.$.horario;
+                horario.textContent = "18:00";
+                var pago = this.$.pago;
+                pago.textContent = "Pagar";
+                var price = this.$.price;
+                price.textContent = "6€";*/
+            addTicket: function(ticket){
+                console.log("Voy a añadir el ticket", ticket);
+            }
+
+        });
+    })();
+    </script>
+</dom-module>
