@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test html</title>
+</head>
+
+<body>
+    <button is="wc-button">Click</button>
+     <script>
+    var btn = Object.create(HTMLButtonElement.prototype);
+    btn.createdCallback = function() {
+            this.addEventListener("click", function() {
+                    console.log("Click");
+                });
+            };
+            var WCButton = document.registerElement(
+                'wc-button', {
+                    extends: 'button',
+                    prototype: btn
+                });
+    </script>
+</body>

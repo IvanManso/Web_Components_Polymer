@@ -8,7 +8,7 @@
 
 <body>
     <template id="news">
-        <img src="" style="width:350px;    border: black solid; border-radius: 5px;">
+        <img src="" style="width:350px; border: black solid; border-radius: 5px;">
         <div class="body"></div>
     </template>
     <wc-new id="new-1">
@@ -22,13 +22,11 @@
         var template = document.querySelector("#news").content;
         template.querySelector("img").src = this.querySelector("wc-new-img").textContent;
         template.querySelector(".body").textContent = this.querySelector("wc-new-body").textContent;
-
         root.appendChild(template.cloneNode(true));
     };
     var Card = document.registerElement(
         'wc-new', {
             prototype: p
-
         });
     </script>
 </body>
