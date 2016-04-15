@@ -14,17 +14,21 @@
         </style>
         <div id="marco">
             <h1>Taquilla</h1>
-            <content></content>
+            <div id="c" on-wc-movie-session="onSession">
+                <content></content>
+            </div>
         </div>
     </template>
     <script>
     (function() {
         Polymer({
             is: "wc-window",
-            properties:{
+            properties: {
                 type: String,
                 kiosk: ""
             },
+
+            //this.fire("wc_ev", {})
             /*ready: function() {
                 var film = this.$.film;
                 film.textContent = "American Psycho";
@@ -39,23 +43,23 @@
                     var add = Polymer.dom(movie).querySelector("ses1");
                     add.addEventListener("click")
              }*/
-             ready: function(){
-                var peliculas = Polymer.dom(this).querySelectorAll("wc-pelicula");
+            onSession: function(e) {
+                //this.listen(this, "click", "onClick");
+                var film = e.detail.film;
+                var session = e.detail.session;
+
+                /*var peliculas = Polymer.dom(this).querySelectorAll("wc-pelicula");
                 console.log("El pol es", peliculas);
-                peliculas.forEach(function(pelicula){
-                    pelicula.addEventListener("click", function(tar){
+                peliculas.forEach(function(pelicula) {
+                    pelicula.addEventListener("click", function(tar) {
                         var target = tar.target;
                         var session = target.value;
-                        console.log("Session es", session);
-                        var ticket = new Ticket();
-                        ticket.session = session;
-                        ticket.film = pelicula.film;
-                        console.log("El kiosko es", this);
-                        var dos = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
-                    }.bind(this));
-                }.bind(this));
-             },
-
+                        console.log("Session es", session);*/
+                var ticket = new Ticket();
+                ticket.film = film;
+                ticket.session = session;
+                this.parentNode.querySelector(this.kiosk).addTicket(ticket);
+            },
         });
     })();
     </script>
