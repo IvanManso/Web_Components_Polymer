@@ -3,7 +3,7 @@
 <dom-module id="wc-kiosk">
     <template>
         <style>
-        .marco {
+        .tick {
             margin: 20px;
             padding: 20px;
             text-align: center;
@@ -13,9 +13,9 @@
             background-color: red;
         }
         </style>
-        <div class="marco">
+        <div class="tick">
             <h1>Kiosko</h1>
-        <content></content>
+            {{ticket}}
         </div>
     </template>
     <script>
@@ -31,8 +31,9 @@
                 pago.textContent = "Pagar";
                 var price = this.$.price;
                 price.textContent = "6€";*/
-            addTicket: function(ticket){
+            addTicket: function(ticket) {
                 console.log("Voy a añadir el ticket", ticket);
+                this.querySelector(".tick").appendChild(ticket);
             }
 
         });

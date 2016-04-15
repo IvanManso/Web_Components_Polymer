@@ -40,7 +40,7 @@
                 var peliculas = Polymer.dom(this).querySelectorAll("wc-pelicula");
                 console.log("El pol es", peliculas);
                 peliculas.forEach(function(pelicula){
-                    addEventListener("click", function(tar){
+                    pelicula.addEventListener("click", function(tar){
                         var target = tar.target;
                         var session = target.value;
                         console.log("Session es", session);
