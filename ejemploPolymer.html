@@ -9,12 +9,36 @@
 </head>
 
 <body>
-    <wc-window kiosk="#k">
+    <style>
+    body {
+        background-image: url("http://www.psdgraphics.com/file/abstract-mosaic-background.png");
+        opacity: 0.7;
+        -moz-box-shadow: 0px 0px 30px #ffffff;
+        -webkit-box-shadow: 0px 0px 30px #ffffff;
+        box-shadow: 0px 0px 30px #ffffff;
+    }
+
+    #k {
+        text-align: center;
+    }
+
+    #j {
+        text-align: center;
+    }
+    </style>
+    <wc-window kiosk="#k" id="j">
         <wc-pelicula film="American Psycho" director="Matt Eric" anio="2000"></wc-pelicula>
         <wc-pelicula film="American Hustle" director="Edward Liam" anio="2007"></wc-pelicula>
         <wc-pelicula film="Batman Begins" director="Christian Nolan" anio="2006"></wc-pelicula>
     </wc-window>
+    <wc-window kiosk="#i" id="j">
+        <wc-pelicula film="Captain America" director="Edric Gudal" anio="2010"></wc-pelicula>
+        <wc-pelicula film="Iron Man 3" director="Dan Statham" anio="2014"></wc-pelicula>
+        <wc-pelicula film="Thor" director="Dornel Abnes" anio="2012"></wc-pelicula>
+    </wc-window>
     <wc-kiosk id="k">
+    </wc-kiosk>
+    <wc-kiosk id="i">
     </wc-kiosk>
 </body>
 

@@ -8,7 +8,6 @@
             padding: 20px;
             text-align: center;
             border-style: solid;
-            width: 600px;
             border-radius: 8px;
             background-color: lightgreen;
         }
@@ -22,6 +21,10 @@
     (function() {
         Polymer({
             is: "wc-window",
+            properties:{
+                type: String,
+                kiosk: ""
+            },
             /*ready: function() {
                 var film = this.$.film;
                 film.textContent = "American Psycho";
@@ -48,8 +51,7 @@
                         ticket.session = session;
                         ticket.film = pelicula.film;
                         console.log("El kiosko es", this);
-                        var dos = this.parentNode.querySelector("#k").addTicket(ticket);
-                        console.log("Estoy en el kiosko", this.parentNode.querySelector("#k"));
+                        var dos = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
                     }.bind(this));
                 }.bind(this));
              },
