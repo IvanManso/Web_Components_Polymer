@@ -25,7 +25,12 @@
             is: "wc-window",
             properties: {
                 type: String,
-                kiosk: ""
+                kiosk: {
+                    type: Object,
+                    value: function(){
+                        return {};
+                    }
+                }
             },
 
             //this.fire("wc_ev", {})
@@ -58,7 +63,7 @@
                 var ticket = new Ticket();
                 ticket.film = film;
                 ticket.session = session;
-                this.parentNode.querySelector(this.kiosk).addTicket(ticket);
+                this.kiosk.addTicket(ticket);
             },
         });
     })();

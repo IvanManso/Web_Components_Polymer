@@ -1,0 +1,50 @@
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-kiosk.html">
+<dom-module id="wc-text">
+    <template>
+        <style>
+        #marco {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 8px;
+            background-color: lightgreen;
+        }
+        </style>
+        <wc-window kiosk="{{kiosk}}" id="j">
+            <wc-pelicula film="American Psycho" director="Matt Eric" anio="2000"></wc-pelicula>
+            <wc-pelicula film="American Hustle" director="Edward Liam" anio="2007"></wc-pelicula>
+            <wc-pelicula film="Batman Begins" director="Christian Nolan" anio="2006"></wc-pelicula>
+            <wc-pelicula film="Batman Dark Knight" director="Christian Nolan" anio="2009"></wc-pelicula>
+        </wc-window>
+        <wc-window kiosk="{{kiosk}}" id="j">
+            <wc-pelicula film="Captain America" director="Edric Gudal" anio="2010"></wc-pelicula>
+            <wc-pelicula film="Iron Man 3" director="Dan Statham" anio="2014"></wc-pelicula>
+            <wc-pelicula film="Thor" director="Dornel Abnes" anio="2012"></wc-pelicula>
+        </wc-window>
+        <wc-kiosk id="k">
+        </wc-kiosk>
+        <wc-kiosk id="i">
+        </wc-kiosk>
+    </template>
+</dom-module id="wc-text">
+<script>
+(function() {
+    Polymer({
+        is: "wc-text",
+        ready: function(){
+        	this.kiosk = this.$.k;
+        },
+        properties: {
+            kiosk: {
+            	type: Object,
+            	value: function(){
+            		return {};
+            	}
+            }
+        }
+    });
+})();
+</script>
+</dom-module>
