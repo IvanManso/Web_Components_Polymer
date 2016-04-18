@@ -3,6 +3,8 @@
 <link rel="import" href="wc-kiosk.html">
 <link rel="import" href="wc-cinema.html">
 <link rel="import" href="wc-ticket.html">
+<link rel="import" href="wc-selector.html">
+
 <dom-module id="wc-text">
     <template>
         <style>
@@ -15,12 +17,9 @@
             background-color: lightgreen;
         }
         </style>
-        <button on-tap="onTap" value="A">Cambiar</button>
-        <wc-cinema movies="{{m1}}" value="A">
-        </wc-cinema>
-        <wc-cinema movies="{{m2}}" value="B">
-        </wc-cinema>
-        <wc-window movies="{{movies}}" kiosk="{{kiosk}}" id="j">
+        <wc-selector key="movies" data="{{movies}}">
+        </wc-selector>
+        <wc-window movies="[[movies]]" kiosk="{{kiosk}}" id="j">
         </wc-window>
         <wc-kiosk id="k">
         </wc-kiosk>
@@ -37,30 +36,29 @@
                     return {};
                 }
             },
-            movies:{
+            movies: {
                 type: Object
             },
-            m1:{
+            m1: {
                 type: Array
             },
-            m2:{
+            m2: {
                 type: Array
             }
         },
-        onTap:function(e){
+        /*onTap: function(e) {
             console.log("Soy el onTap");
-            if(e.target.value === "A"){
-                e.target.value= "B";
+            if (e.target.value === "A") {
+                e.target.value = "B";
                 this.movies = this.m2;
-            }
-            else{
+            } else {
                 e.target.value = "A";
                 this.movies = this.m1;
             }
-        },
+        },*/
         ready: function() {
             this.kiosk = this.$.k;
-            this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
+           // this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
         }
 
     });

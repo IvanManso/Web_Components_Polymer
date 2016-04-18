@@ -1,0 +1,55 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-cinema.html">
+<dom-module id="wc-selector">
+    <template>
+        <button on-tap="onTap" value="A">Cambiar</button>
+        <wc-cinema movies="{{m1}}" value="A">
+        </wc-cinema>
+        <wc-cinema movies="{{m2}}" value="B">
+        </wc-cinema>
+    </template>
+    <script>
+    (function() {
+        var i = 0;
+        Polymer({
+            is: "wc-selector",
+            properties: {
+                movies: {
+                    type: Object
+                },
+                m1: {
+                    type: Array
+                },
+                m2: {
+                    type: Array
+                },
+                data: {
+                    type: Array
+                }
+            },
+            onTap: function(e) {
+                console.log("Soy el onTap");
+                if (e.target.value === "A") {
+                    e.target.value = "B";
+                    this.data = this.m2;
+                    this.notifyPath("data", this.data);
+
+                } else {
+                    e.target.value = "A";
+                    this.data = this.m1;
+                    this.notifyPath("data", this.data);
+
+                }
+            },
+            ready: function() {
+                this.data = this.m1;
+                console.log("Estoy en el ready del selector");
+                console.log("El this.data es ", this.data);
+                this.notifyPath("data", this.data);
+
+
+            }
+        });
+    })();
+    </script>
+</dom-module>
