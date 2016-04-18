@@ -1,0 +1,37 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-cinema">
+    <script>
+    (function() {
+        Polymer({
+            is: "wc-cinema",
+             properties: {
+                movies: {
+                    type: Array,
+                    notify : true,
+                    value: function() {
+                        return [];
+                    }
+                }
+            },
+            ready: function() {
+                console.log("Estoy en el ready de wc-cinema");
+                this.movies = [{
+                    "film": "American Psycho",
+                    "director": "Matt Eric",
+                    "anio": "2000"
+                }, {
+                    "film": "American Hustle",
+                    "director": "Edward Liam",
+                    "anio": "2007"
+                }, {
+                    "film": "Batman Begins",
+                    "director": "Christian Nolan",
+                    "anio": "2006"
+                }];
+                this.notifyPath("movies", this.movies);
+            }
+
+        });
+    })();
+    </script>
+</dom-module>

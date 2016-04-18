@@ -1,5 +1,8 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 <link rel="import" href="wc-window.html">
 <link rel="import" href="wc-kiosk.html">
+<link rel="import" href="wc-cinema.html">
+<link rel="import" href="wc-ticket.html">
 <dom-module id="wc-text">
     <template>
         <style>
@@ -12,20 +15,11 @@
             background-color: lightgreen;
         }
         </style>
-        <wc-window kiosk="{{kiosk}}" id="j">
-            <wc-pelicula film="American Psycho" director="Matt Eric" anio="2000"></wc-pelicula>
-            <wc-pelicula film="American Hustle" director="Edward Liam" anio="2007"></wc-pelicula>
-            <wc-pelicula film="Batman Begins" director="Christian Nolan" anio="2006"></wc-pelicula>
-            <wc-pelicula film="Batman Dark Knight" director="Christian Nolan" anio="2009"></wc-pelicula>
-        </wc-window>
-        <wc-window kiosk="{{kiosk}}" id="j">
-            <wc-pelicula film="Captain America" director="Edric Gudal" anio="2010"></wc-pelicula>
-            <wc-pelicula film="Iron Man 3" director="Dan Statham" anio="2014"></wc-pelicula>
-            <wc-pelicula film="Thor" director="Dornel Abnes" anio="2012"></wc-pelicula>
+        <wc-cinema movies="{{movies}}">
+        </wc-cinema>
+        <wc-window movies="[[movies]]" kiosk="{{kiosk}}" id="j">
         </wc-window>
         <wc-kiosk id="k">
-        </wc-kiosk>
-        <wc-kiosk id="i">
         </wc-kiosk>
     </template>
 </dom-module id="wc-text">
@@ -33,17 +27,18 @@
 (function() {
     Polymer({
         is: "wc-text",
-        ready: function(){
-        	this.kiosk = this.$.k;
-        },
         properties: {
             kiosk: {
-            	type: Object,
-            	value: function(){
-            		return {};
-            	}
+                type: Object,
+                value: function() {
+                    return {};
+                }
             }
+        },
+        ready: function() {
+            this.kiosk = this.$.k; //de esto depende que ponga el ticket en un kiosko u otro
         }
+
     });
 })();
 </script>

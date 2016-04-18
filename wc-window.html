@@ -15,7 +15,11 @@
         <div id="marco">
             <h1>Taquilla</h1>
             <div id="c" on-wc-movie-session="onSession">
-                <content></content>
+                <template is="dom-repeat" items="{{movies}}" as="movie">
+                    <h3>Película:</h3>
+                    <wc-pelicula film="{{movie.film}}" director="{{movie.director}}" anio="{{movie.anio}}">
+                    </wc-pelicula>
+                </template>
             </div>
         </div>
     </template>
@@ -24,13 +28,20 @@
         Polymer({
             is: "wc-window",
             properties: {
-                type: String,
                 kiosk: {
                     type: Object,
-                    value: function(){
+                    value: function() {
                         return {};
                     }
+                },
+                movies: {
+                    type: Array,
+                    // notify : true,
                 }
+
+            },
+            ready: function(){
+                console.log("Las películas son", this.movies);
             },
 
             //this.fire("wc_ev", {})
