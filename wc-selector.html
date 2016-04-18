@@ -25,9 +25,21 @@
                 },
                 data: {
                     type: Array
+                },
+                key:{
+                    type: String
+                },
+                selected:{
+                    type: Number,
+                    value: 0,
+                    notify: true
                 }
             },
             onTap: function(e) {
+                var length = Polymer.dom(this).children.length;
+                this.selected=(this.selected+1) % length;
+                var hijo = Polymer.dom(this).children[this.selected];
+
                 console.log("Soy el onTap");
                 if (e.target.value === "A") {
                     e.target.value = "B";
@@ -42,7 +54,9 @@
                 }
             },
             ready: function() {
+                console.log("Los hijos son", this.children);
                 this.data = this.m1;
+                this.key = "m1";
                 console.log("Estoy en el ready del selector");
                 console.log("El this.data es ", this.data);
                 this.notifyPath("data", this.data);
