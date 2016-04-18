@@ -35,13 +35,19 @@
                     }
                 },
                 movies: {
+                    type: Array
+                        // notify : true,
+                },
+                m1: {
+                    type: Array
+                },
+                m2: {
                     type: Array,
-                    // notify : true,
-                }
 
+                }
             },
-            ready: function(){
-                console.log("Las películas son", this.movies);
+            ready: function() {
+
             },
 
             //this.fire("wc_ev", {})

@@ -15,9 +15,12 @@
             background-color: lightgreen;
         }
         </style>
-        <wc-cinema movies="{{movies}}">
+        <button on-tap="onTap" value="A">Cambiar</button>
+        <wc-cinema movies="{{m1}}" value="A">
         </wc-cinema>
-        <wc-window movies="[[movies]]" kiosk="{{kiosk}}" id="j">
+        <wc-cinema movies="{{m2}}" value="B">
+        </wc-cinema>
+        <wc-window movies="{{movies}}" kiosk="{{kiosk}}" id="j">
         </wc-window>
         <wc-kiosk id="k">
         </wc-kiosk>
@@ -33,10 +36,31 @@
                 value: function() {
                     return {};
                 }
+            },
+            movies:{
+                type: Object
+            },
+            m1:{
+                type: Array
+            },
+            m2:{
+                type: Array
+            }
+        },
+        onTap:function(e){
+            console.log("Soy el onTap");
+            if(e.target.value === "A"){
+                e.target.value= "B";
+                this.movies = this.m2;
+            }
+            else{
+                e.target.value = "A";
+                this.movies = this.m1;
             }
         },
         ready: function() {
-            this.kiosk = this.$.k; //de esto depende que ponga el ticket en un kiosko u otro
+            this.kiosk = this.$.k;
+            this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
         }
 
     });
