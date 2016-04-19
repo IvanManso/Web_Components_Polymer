@@ -11,10 +11,12 @@
             border-radius: 8px;
             background-color: red;
         }
+        :host {
+            --fondo: grey;
+        }
         </style>
         <div id="tick">
-            <h1>Kiosko</h1>
-            {{ticket}}
+            <h1>Kiosko</h1> {{ticket}}
         </div>
     </template>
     <script>

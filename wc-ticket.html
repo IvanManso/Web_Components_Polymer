@@ -3,20 +3,21 @@
     <template>
         <style>
         .marco {
-             margin: 50px;
+            margin: 50px;
             padding: 70px;
             text-align: center;
             border-style: solid;
             border-radius: 5px;
-            background-color: lightblue;
+            background-color: var(--fondo, lightblue);
         }
+
         </style>
         <div class="marco">
             Película:
-            <div id="film">	{{film}}</div>
+            <div id="film"> {{film}}</div>
             <hr>
             <div id="session">{{session}}</button>
-        </div>
+            </div>
         </div>
     </template>
     <script>
@@ -24,7 +25,7 @@
         Ticket = Polymer({
             is: "wc-ticket",
             /*ready: function() {
-            	var film = this.$.film;
+                var film = this.$.film;
                 film.textContent = "American Psycho";
                 var horario = this.$.horario;
                 horario.textContent = "18:00";
@@ -38,18 +39,18 @@
                     value: ""
                 },
                 session: {
-                	type: String,
-                	value:""
+                    type: String,
+                    value: ""
                 },
                 code: {
-                	type: String,
-                	readOnly: true,
-                	computed: "getSeat(ses1)"
+                    type: String,
+                    readOnly: true,
+                    computed: "getSeat(ses1)"
                 },
             },
 
-            getSeat: function(ses){
-            	return ses;
+            getSeat: function(ses) {
+                return ses;
             }
         });
     })();
