@@ -4,7 +4,6 @@
 <link rel="import" href="wc-cinema.html">
 <link rel="import" href="wc-ticket.html">
 <link rel="import" href="wc-selector.html">
-
 <dom-module id="wc-text">
     <template>
         <style>
@@ -18,6 +17,10 @@
         }
         </style>
         <wc-selector key="movies" data="{{movies}}">
+            <wc-cinema movies="{{m1}}" value="A">
+            </wc-cinema>
+            <wc-cinema movies="{{m2}}" value="B">
+            </wc-cinema>
         </wc-selector>
         <wc-window movies="[[movies]]" kiosk="{{kiosk}}" id="j">
         </wc-window>
@@ -58,7 +61,7 @@
         },*/
         ready: function() {
             this.kiosk = this.$.k;
-           // this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
+            // this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
         }
 
     });
