@@ -1,0 +1,82 @@
+
+<dom-module id="wc-pelicula">
+    <template>
+        <style>
+        .marco {
+            margin: 50px;
+            padding: 70px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 5px;
+            background-color: var(--fondo, lightblue);
+        }
+        </style>
+        <div class="marco">
+            <h3>Película:</h3>
+            <div id="film"> {{film}}</div>
+            <hr> Director:
+            <div id="director"> {{director}}</div>
+            <hr> Año:
+            <div id="anio">{{anio}}</div>
+            <hr>
+            <button id="ses1" on-click="onWcMovieSession" value="16:00">16:00</button>
+            <button id="ses2"  on-click="onWcMovieSession" value="18:00">18:00</button>
+            <div id="code">{{code}}</div>
+        </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: "wc-pelicula",
+            onWcMovieSession: function(e) {
+                console.log("Estoy en el botón");
+                var button = Polymer.dom(e).localTarget.value;
+                var title = this.film;
+                e.stopPropagation();
+                this.fire("wc-movie-session", { session: button, film: title});
+            },
+            /* addTicket: function(){
+                 var ses = this.querySelector("#ses1").textContent;
+                 console.log(ses);
+             },
+             addTicket2: function(){
+                 var ses = this.querySelector("#ses2").textContent;
+                 console.log(ses);
+             },*/
+            /*ready: function() {
+                var film = this.$.film;
+                film.textContent = "American Psycho";
+                var horario = this.$.horario;
+                horario.textContent = "18:00";
+                var pago = this.$.pago;
+                pago.textContent = "Pagar";
+                var price = this.$.price;
+                price.textContent = "6€";*/
+            properties: {
+                film: {
+                    type: String,
+                    value: "American Psycho"
+                },
+                director: {
+                    type: String,
+                    value: "Eric Morris"
+                },
+                anio: {
+                    type: Number,
+                    value: 2000
+                },
+                code: {
+                    type: String,
+                    readOnly: true,
+                    computed: "getSeat(ses1)"
+                },
+            },
+
+            getSeat: function(ses) {
+                return ses;
+            }
+        });
+    })();
+    </script>
+</dom-module>

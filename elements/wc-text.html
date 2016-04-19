@@ -1,0 +1,65 @@
+
+<dom-module id="wc-text">
+    <template>
+        <style>
+        #marco {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 8px;
+            background-color: lightgreen;
+        }
+        </style>
+        <wc-selector key="movies" data="{{movies}}">
+            <wc-cinema movies="{{m1}}" value="A">
+            </wc-cinema>
+            <wc-cinema movies="{{m2}}" value="B">
+            </wc-cinema>
+        </wc-selector>
+        <wc-window movies="[[movies]]" kiosk="{{kiosk}}" id="j">
+        </wc-window>
+        <wc-kiosk id="k">
+        </wc-kiosk>
+    </template>
+</dom-module id="wc-text">
+<script>
+(function() {
+    Polymer({
+        is: "wc-text",
+        properties: {
+            kiosk: {
+                type: Object,
+                value: function() {
+                    return {};
+                }
+            },
+            movies: {
+                type: Object
+            },
+            m1: {
+                type: Array
+            },
+            m2: {
+                type: Array
+            }
+        },
+        /*onTap: function(e) {
+            console.log("Soy el onTap");
+            if (e.target.value === "A") {
+                e.target.value = "B";
+                this.movies = this.m2;
+            } else {
+                e.target.value = "A";
+                this.movies = this.m1;
+            }
+        },*/
+        ready: function() {
+            this.kiosk = this.$.k;
+            // this.movies = this.m1; //de esto depende que ponga el ticket en un kiosko u otro
+        }
+
+    });
+})();
+</script>
+</dom-module>

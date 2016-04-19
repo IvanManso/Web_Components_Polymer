@@ -1,0 +1,48 @@
+
+<dom-module id="wc-cinema">
+    <script>
+    (function() {
+        var i = 0;
+
+        Polymer({
+            is: "wc-cinema",
+            properties: {
+                movies: {
+                    type: Array,
+                    notify: true,
+                    value: function() {
+                        return [];
+                    }
+                }
+            },
+            ready: function() {
+                console.log("Estoy en el ready de wc-cinema");
+                if (i == 0) {
+                    this.movies = [{
+                        "film": "American Psycho",
+                        "director": "Matt Eric",
+                        "anio": "2000"
+                    }, {
+                        "film": "American Hustle",
+                        "director": "Edward Liam",
+                        "anio": "2007"
+                    }];
+                } else {
+                    this.movies = [{
+                        "film": "Batman: Dark Knight",
+                        "director": "Christian Nolan",
+                        "anio": "2009"
+                    }, {
+                        "film": "Batman Begins",
+                        "director": "Christian Nolan",
+                        "anio": "2006"
+                    }];
+                }
+                this.notifyPath("movies", this.movies);
+                i++;
+            }
+
+        });
+    })();
+    </script>
+</dom-module>

@@ -1,0 +1,93 @@
+
+
+<dom-module id="wc-window">
+    <template>
+        <style>
+        #marco {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 8px;
+            background-color: lightgreen;
+        }
+
+        :host {
+            --fondo: green;
+        }
+        </style>
+        <div id="marco">
+            <paper-toolbar>
+                <h1>Taquilla</h1> </paper-toolbar>
+            <div id="c" on-wc-movie-session="onSession">
+                <template is="dom-repeat" items="{{movies}}" as="movie">
+                    <h3>Película:</h3>
+                    <wc-pelicula film="{{movie.film}}" director="{{movie.director}}" anio="{{movie.anio}}">
+                    </wc-pelicula>
+                </template>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: "wc-window",
+            properties: {
+                kiosk: {
+                    type: Object,
+                    value: function() {
+                        return {};
+                    }
+                },
+                movies: {
+                    type: Array
+                        // notify : true,
+                },
+                m1: {
+                    type: Array
+                },
+                m2: {
+                    type: Array,
+
+                }
+            },
+            ready: function() {
+
+            },
+
+            //this.fire("wc_ev", {})
+            /*ready: function() {
+                var film = this.$.film;
+                film.textContent = "American Psycho";
+                var horario = this.$.horario;
+                horario.textContent = "18:00";
+                var pago = this.$.pago;
+                pago.textContent = "Pagar";
+                var price = this.$.price;
+                price.textContent = "6€";*/
+            /* ready: function() {
+                 var movie =this.$.marco.getEffectiveChildren();
+                    var add = Polymer.dom(movie).querySelector("ses1");
+                    add.addEventListener("click")
+             }*/
+            onSession: function(e) {
+                //this.listen(this, "click", "onClick");
+                var film = e.detail.film;
+                var session = e.detail.session;
+
+                /*var peliculas = Polymer.dom(this).querySelectorAll("wc-pelicula");
+                console.log("El pol es", peliculas);
+                peliculas.forEach(function(pelicula) {
+                    pelicula.addEventListener("click", function(tar) {
+                        var target = tar.target;
+                        var session = target.value;
+                        console.log("Session es", session);*/
+                var ticket = new Ticket();
+                ticket.film = film;
+                ticket.session = session;
+                this.kiosk.addTicket(ticket);
+            },
+        });
+    })();
+    </script>
+</dom-module>

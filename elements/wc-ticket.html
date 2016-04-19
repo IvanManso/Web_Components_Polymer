@@ -1,0 +1,58 @@
+
+<dom-module id="wc-ticket">
+    <template>
+        <style>
+        .marco {
+            margin: 50px;
+            padding: 70px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 5px;
+            background-color: var(--fondo, lightblue);
+        }
+
+        </style>
+        <div class="marco">
+            Película:
+            <div id="film"> {{film}}</div>
+            <hr>
+            <div id="session">{{session}}</button>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Ticket = Polymer({
+            is: "wc-ticket",
+            /*ready: function() {
+                var film = this.$.film;
+                film.textContent = "American Psycho";
+                var horario = this.$.horario;
+                horario.textContent = "18:00";
+                var pago = this.$.pago;
+                pago.textContent = "Pagar";
+                var price = this.$.price;
+                price.textContent = "6€";*/
+            properties: {
+                film: {
+                    type: String,
+                    value: ""
+                },
+                session: {
+                    type: String,
+                    value: ""
+                },
+                code: {
+                    type: String,
+                    readOnly: true,
+                    computed: "getSeat(ses1)"
+                },
+            },
+
+            getSeat: function(ses) {
+                return ses;
+            }
+        });
+    })();
+    </script>
+</dom-module>
